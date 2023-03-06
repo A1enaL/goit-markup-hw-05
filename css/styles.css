@@ -1,5 +1,5 @@
 
-/* color */
+/* ---------------------------------------COLOR -------------------------------------*/
 :root {
     --primary-brand: #4D5AE5;
     --pressed-state: #404BBF;
@@ -63,7 +63,8 @@ body{font-family: 'Roboto', sans-serif;
     color: var(--text);}    
 
 
- /* header */
+ /* ==============================HEADER============================================ */
+ 
  .header {
     border-bottom: 1px solid var(--accent);}
 
@@ -74,7 +75,9 @@ body{font-family: 'Roboto', sans-serif;
 
 nav {display: flex;
     align-items: center;}
-    /* logo */
+
+    /* ----------------------------LOGO-------------------------------------------- */
+   
     .logo {
         font-family: Raleway, sans-serif;
         font-weight: 800;
@@ -92,14 +95,25 @@ nav {display: flex;
         gap: 40px;}
 
     .site-nav .link {
+        position: relative;
         display: block;
         padding: 24px 0;
         font-weight: 500;
-        color: var(--dark);}
+        color: var(--dark);
+    
+        transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
-    .site-nav .link:hover, .site-nav .link:focus, .site-nav .link:active {color: var(--pressed-state);}
+    .site-nav .link:is(:hover, :focus, :active) {color: var(--pressed-state);}
 
-    .site-nav .link.current {color: var(--pressed-state);}
+    .site-nav .link.current::after {  
+        position: absolute;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background-color: var(--pressed-state);}
 
     /* auth nav */
     .auth {margin-left: auto;}
@@ -110,14 +124,19 @@ nav {display: flex;
     .auth-nav .link {
     display: block;
     padding: 24px 0;
-    color: var(--text);}
+    color: var(--text);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
     .auth-nav .link:hover,
     .auth-nav .link:focus,
     .auth-nav .link:active {
     color: var(--pressed-state);}
 
-/* Main */
-    /* Hero */
+/* =================================MAIN============================================ */
+   
+    /* -----------------------------HERO-------------------------------------------- */
+    
     .hero {
     background-color: var(--dark);
     text-align: center;
@@ -154,11 +173,14 @@ nav {display: flex;
 
     .button.primary {
         background-color: var(--primary-brand);
-        color: var(--primary-white);}
+        color: var(--primary-white);
+
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
         button.primary:hover, .button.primary:focus, .button.primary:active {background-color: var(--pressed-state);
         box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);}
 
+   
     /* h2 */
     .title {
        margin-left: auto;
@@ -167,7 +189,8 @@ nav {display: flex;
         font-size: 36px;
         line-height: 1.11; color: var(--dark);}
 
-        /* features  */ 
+        /* ----------------------FEAUTERS-----------------------------------------  */ 
+
     .section-features {
         padding-top: 120px;
         padding-bottom: 120px;}   
@@ -200,8 +223,9 @@ nav {display: flex;
         line-height: 1.2;
         color: var(--dark);}
 
-/* section project */
-    .section-project {
+/* --------------------------SECTION PROJECT--------------------------------------- */
+    
+.section-project {
         text-align: center;
         padding-bottom: 120px;}
 
@@ -214,7 +238,8 @@ nav {display: flex;
     .project-item {flex-basis: calc((100% - 48px) / 3);
     }
 
-    /* team */
+    /* -----------------------SECTION TEAM------------------------------------------ */
+   
     .section-team {
         text-align: center;
         padding-top: 120px;
@@ -263,12 +288,15 @@ nav {display: flex;
         height: 100%;
         background-color: var(--primary-brand);
         border-radius: 50%;
-    }
+    
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
     .social-icon {fill: var(--light);}
 
     .social-link:is(:hover, :focus){background-color: var(--pressed-state);}
 
-/* Customer */
+/* --------------------------CUSTOMERS---------------------------------------------- */
+
 .section-customer {
     text-align: center;
     padding-top: 130px;
@@ -291,8 +319,9 @@ nav {display: flex;
     height: 88px;
     border: 1px solid var(--subtle);
     border-radius: 4px;
+    color: var(--subtle) ;
 
-    color: var(--subtle) ;}
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
 .customer-link:is(:hover, :focus) {border-color: var(--pressed-state);
 color: var(--pressed-state);}
@@ -342,18 +371,21 @@ color: var(--pressed-state);}
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);}
+    background-color: rgba(255, 255, 255, 0.1);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
 .footer-social-link:is(:hover, :focus) {
     background-color: var(--success);}
 
-/* page portfolio */
+/* ===============================PAGE PORTFOLIO==================================== */
 
 .section-examples {
     padding-top: 96px;
     padding-bottom: 120px;}
 
-/* filters */
+/* ---------------------------------FILTERS---------------------------------------- */
+
 .filters-list {
     display: flex;
     justify-content: center;  
@@ -362,35 +394,57 @@ color: var(--pressed-state);}
 
  .button.secondary {
      background-color: var(--accent);
-     color: var(--primary-brand);}
+     color: var(--primary-brand);
+    
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);}
 
  .button.secondary:hover,
  .button.secondary:focus,
  .button.secondary:active {
-     background: var(--pressed-state);
+     background-color: var(--pressed-state);
      color: var(--primary-white);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);}
 
-/*examples */
+/*--------------------------------EXAMPLES----------------------------------------- */
+
 .examples-list {
     display: flex;
     flex-wrap: wrap;
     gap: 48px 24px;}
 
-.examples-item {
-    
+.examples-item {   
     flex-basis: calc((100% - 48px) / 3);}
 
-
-
 .examples-item .link {display: block;
-    color: var(--text);}
+    color: var(--text);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.back-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 300px;
+
+    background-color: var(--primary-brand);
+    color: var(--light);
+    padding: 40px 32px;
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.examples-link:hover .back-content {transform: translateY(-300px);}
 
 .examples-item .content {border: 1px solid var(--accent);
     border-top: none;
     padding: 32px 16px;}
 
-.examples-list .link:is(:hover, :focus) {
+.examples-link:is(:hover, :focus) {
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);}
 
 
@@ -400,3 +454,49 @@ color: var(--pressed-state);}
     font-size: 20px;
     line-height: 1.2;
     color: var(--dark);}
+
+
+/* ==============MODAL============= */
+
+.backdrop    {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+visibility: ;
+opacity: 0;
+pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal {
+position: absolute;
+top: 50%;
+left: 50%;
+
+min-width: 600px;
+min-height: 400px;
+
+background-color: #FFFFFF;
+
+transform: translate(-50%, -50%) scale(1);
+transition: translate 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+
+.modal-close{
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;}
+
